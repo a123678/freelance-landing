@@ -3,568 +3,939 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>신성영 — C#/WPF · 스마트팩토리 · 보안 프리랜서 개발자</title>
-  <meta name="description" content="WPF 클라이언트, 스마트팩토리 통신, 리버스엔지니어링 전문 프리랜서 개발자 신성영입니다. 미문서화 프로토콜 분석부터 산업용 소프트웨어까지 맡겨주세요." />
-  <meta property="og:title" content="신성영 — 프리랜서 개발자 의뢰" />
-  <meta property="og:description" content="WPF · 스마트팩토리 · 리버스엔지니어링 전문. 3년+ 경력, 132개 기술 블로그 포스트." />
+  <title>신성영 | AI 협업 프리랜서 개발자</title>
+  <meta name="description" content="GPT, Genspark AI Chat, Google 검색 기준을 함께 활용해 C#/WPF, 스마트팩토리 통신, 레거시 프로토콜 분석을 빠르게 진단하고 구현하는 프리랜서 개발자 신성영입니다." />
+  <meta name="keywords" content="신성영, 프리랜서 개발자, C# WPF, 스마트팩토리, 산업용 소프트웨어, GPT 협업 개발, Genspark AI Chat, Google SEO, 리버스엔지니어링, 프로토콜 분석" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="신성영 | AI 협업 프리랜서 개발자" />
+  <meta property="og:description" content="산업용 소프트웨어, WPF, 스마트팩토리 통신, 레거시 분석을 AI 협업 워크플로로 빠르게 진단하고 납품합니다." />
+  <meta property="og:url" content="https://a123678.github.io/freelance-landing/" />
   <style>
     :root {
-      --bg: #0d1117;
-      --surface: #161b22;
-      --surface2: #21262d;
-      --border: #30363d;
-      --accent: #58a6ff;
-      --accent2: #3fb950;
-      --warn: #d29922;
-      --text: #e6edf3;
-      --muted: #8b949e;
-      --radius: 12px;
+      --ink: #14181f;
+      --ink-soft: #3d4653;
+      --muted: #687383;
+      --line: #dfe5ec;
+      --paper: #ffffff;
+      --wash: #f5f7fa;
+      --teal: #0f766e;
+      --cyan: #0b78b6;
+      --green: #238636;
+      --amber: #a15c07;
+      --rose: #b42318;
+      --radius: 8px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.7;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
+      line-height: 1.65;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    /* ── HERO ── */
-    .hero {
-      max-width: 860px;
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 80px 24px 60px;
-      text-align: center;
     }
 
-    .hero-badge {
+    .topbar {
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .18);
+      color: #fff;
+    }
+
+    .topbar-inner {
+      width: min(1120px, calc(100% - 40px));
+      height: 64px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: .92rem;
+      color: rgba(255, 255, 255, .82);
+    }
+
+    .nav a:last-child {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .hero {
+      min-height: 84vh;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(8, 12, 18, .92), rgba(8, 12, 18, .74) 48%, rgba(8, 12, 18, .24)),
+        url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=82") center / cover;
+    }
+
+    .hero-content {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 120px 0 56px;
+    }
+
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(63,185,80,.12);
-      border: 1px solid rgba(63,185,80,.35);
-      color: var(--accent2);
-      padding: 4px 14px;
-      border-radius: 20px;
-      font-size: .82rem;
-      font-weight: 600;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: #9eeadf;
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #29d391;
+    }
+
+    h1 {
+      max-width: 780px;
+      font-size: clamp(2.25rem, 5vw, 4.6rem);
+      line-height: 1.08;
+      font-weight: 850;
+      letter-spacing: 0;
       margin-bottom: 20px;
     }
-    .hero-badge::before { content: "●"; font-size: .5rem; }
 
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 700;
-      letter-spacing: -.02em;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-    .hero h1 span { color: var(--accent); }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto 36px;
+    .hero-copy {
+      max-width: 680px;
+      color: rgba(255, 255, 255, .84);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      margin-bottom: 32px;
     }
 
-    .cta-group {
+    .cta-row {
       display: flex;
-      gap: 12px;
-      justify-content: center;
       flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 36px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 12px 28px;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform .15s, box-shadow .15s;
-      border: none;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 22px;
+      border-radius: var(--radius);
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
     }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.4); }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .22);
+    }
 
     .btn-primary {
-      background: var(--accent);
-      color: #0d1117;
-    }
-    .btn-secondary {
-      background: var(--surface2);
-      color: var(--text);
-      border: 1px solid var(--border);
+      background: #fff;
+      color: #0b111a;
     }
 
-    /* ── STATS ── */
-    .stats {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 24px 60px;
+    .btn-ghost {
+      color: #fff;
+      border-color: rgba(255, 255, 255, .36);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .proof-strip {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 16px;
-    }
-
-    .stat-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      width: min(780px, 100%);
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: rgba(0, 0, 0, .22);
       border-radius: var(--radius);
-      padding: 24px;
-      text-align: center;
-    }
-    .stat-card .num {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .stat-card .label {
-      font-size: .85rem;
-      color: var(--muted);
-      margin-top: 4px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
     }
 
-    /* ── SECTION COMMON ── */
-    section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 24px 72px;
+    .proof-item {
+      padding: 16px;
+      border-right: 1px solid rgba(255, 255, 255, .16);
+    }
+
+    .proof-item:last-child {
+      border-right: 0;
+    }
+
+    .proof-number {
+      display: block;
+      font-size: 1.35rem;
+      font-weight: 850;
+      color: #ffffff;
+    }
+
+    .proof-label {
+      display: block;
+      margin-top: 2px;
+      color: rgba(255, 255, 255, .7);
+      font-size: .82rem;
+    }
+
+    .band {
+      padding: 76px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .band-muted {
+      background: var(--wash);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .75fr) minmax(280px, 1fr);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 28px;
     }
 
     h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-size: clamp(1.7rem, 3vw, 2.35rem);
+      line-height: 1.2;
+      letter-spacing: 0;
     }
+
     .section-sub {
+      color: var(--ink-soft);
+      font-size: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
       color: var(--muted);
-      margin-bottom: 32px;
       font-size: .95rem;
     }
 
-    /* ── SERVICES ── */
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .service-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: border-color .2s, transform .2s;
-    }
-    .service-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    .service-icon { font-size: 2rem; margin-bottom: 12px; }
-    .service-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
-    .service-card p { font-size: .9rem; color: var(--muted); margin-bottom: 16px; }
-
-    .service-tags {
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 16px;
+      gap: 8px;
+      margin-top: 18px;
     }
+
     .tag {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: .75rem;
-      padding: 2px 10px;
-      border-radius: 20px;
-    }
-
-    .price-range {
-      font-size: .85rem;
-      color: var(--warn);
-      font-weight: 600;
-    }
-
-    /* ── STRENGTHS ── */
-    .strength-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-    }
-    .strength-item {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-    }
-    .strength-item .icon { font-size: 1.6rem; flex-shrink: 0; }
-    .strength-item h4 { font-size: .95rem; margin-bottom: 4px; }
-    .strength-item p { font-size: .85rem; color: var(--muted); }
-
-    /* ── PROCESS ── */
-    .process-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      position: relative;
-    }
-    .process-step {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      padding: 0 0 32px 0;
-      position: relative;
-    }
-    .step-num {
-      background: var(--accent);
-      color: #0d1117;
-      font-weight: 700;
-      font-size: .85rem;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      z-index: 1;
-    }
-    .step-line {
-      position: absolute;
-      left: 16px;
-      top: 32px;
-      bottom: 0;
-      width: 1px;
-      background: var(--border);
-    }
-    .process-step:last-child .step-line { display: none; }
-    .step-body h4 { font-size: .95rem; margin-bottom: 4px; }
-    .step-body p { font-size: .875rem; color: var(--muted); }
-
-    /* ── CONTACT ── */
-    .contact-box {
-      background: linear-gradient(135deg, rgba(88,166,255,.08) 0%, rgba(63,185,80,.08) 100%);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 40px;
-      text-align: center;
-    }
-    .contact-box h2 { font-size: 1.8rem; margin-bottom: 12px; }
-    .contact-box p { color: var(--muted); margin-bottom: 32px; }
-
-    .contact-channels {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .channel-btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 14px 24px;
-      border-radius: 10px;
-      font-size: .95rem;
-      font-weight: 600;
-      transition: transform .15s, box-shadow .15s;
-      text-decoration: none;
-    }
-    .channel-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,.4);
-      text-decoration: none;
+      min-height: 26px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--wash);
+      color: var(--ink-soft);
+      font-size: .78rem;
+      font-weight: 700;
     }
 
-    .ch-email { background: #1f6feb; color: #fff; }
-    .ch-blog  { background: #ff6b35; color: #fff; }
-    .ch-portfolio { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
-
-    /* ── NOTICE ── */
-    .notice {
-      background: rgba(210,153,34,.08);
-      border: 1px solid rgba(210,153,34,.3);
-      border-radius: 8px;
-      padding: 16px 20px;
-      font-size: .875rem;
-      color: var(--warn);
-      margin-bottom: 48px;
+    .tag.teal {
+      color: var(--teal);
+      background: #ecfdf5;
+      border-color: #b7ead8;
     }
 
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 32px 24px;
+    .tag.amber {
+      color: var(--amber);
+      background: #fff7ed;
+      border-color: #fed7aa;
+    }
+
+    .tag.rose {
+      color: var(--rose);
+      background: #fff1f2;
+      border-color: #fecdd3;
+    }
+
+    .ai-stack {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .tool-card {
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-top: 4px solid var(--teal);
+    }
+
+    .tool-card:nth-child(2) {
+      border-top-color: var(--cyan);
+    }
+
+    .tool-card:nth-child(3) {
+      border-top-color: var(--amber);
+    }
+
+    .tool-name {
+      font-size: 1.22rem;
+      font-weight: 850;
+      margin-bottom: 10px;
+    }
+
+    .tool-role {
       color: var(--muted);
-      font-size: .85rem;
+      font-size: .94rem;
     }
 
-    @media (max-width: 600px) {
-      .hero { padding: 48px 20px 40px; }
-      .contact-box { padding: 28px 20px; }
+    .deliverables {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    .deliverable {
+      padding: 24px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .deliverable:nth-child(2n) {
+      border-right: 0;
+    }
+
+    .deliverable:nth-last-child(-n+2) {
+      border-bottom: 0;
+    }
+
+    .deliverable strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .deliverable span {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .process {
+      counter-reset: step;
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 20px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .step::before {
+      content: counter(step);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 850;
+    }
+
+    .step h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .contact {
+      background: #10151c;
+      color: #fff;
+    }
+
+    .contact .section-sub {
+      color: rgba(255, 255, 255, .76);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 54px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: var(--radius);
+      color: #fff;
+      background: rgba(255, 255, 255, .06);
+      font-weight: 800;
+    }
+
+    .contact-link:hover {
+      text-decoration: none;
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .brief-box {
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: var(--radius);
+      padding: 24px;
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .brief-box h3 {
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+    }
+
+    .brief-box ul {
+      padding-left: 18px;
+      color: rgba(255, 255, 255, .78);
+      font-size: .94rem;
+    }
+
+    .brief-box li + li {
+      margin-top: 8px;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 18px 20px;
+    }
+
+    details + details {
+      margin-top: 10px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 850;
+    }
+
+    details p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    footer {
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: .88rem;
+      background: var(--wash);
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding-top: 112px;
+      }
+
+      .proof-strip,
+      .grid-3,
+      .grid-2,
+      .ai-stack,
+      .section-head,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-item,
+      .deliverable {
+        border-right: 0;
+      }
+
+      .proof-item {
+        border-bottom: 1px solid rgba(255, 255, 255, .16);
+      }
+
+      .proof-item:last-child {
+        border-bottom: 0;
+      }
+
+      .deliverables {
+        grid-template-columns: 1fr;
+      }
+
+      .deliverable:nth-last-child(2) {
+        border-bottom: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap,
+      .topbar-inner,
+      .hero-content {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .band {
+        padding: 56px 0;
+      }
+
+      .cta-row .btn {
+        width: 100%;
+      }
+
+      .step {
+        grid-template-columns: 38px 1fr;
+        padding: 16px;
+      }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "신성영 AI 협업 프리랜서 개발",
+    "url": "https://a123678.github.io/freelance-landing/",
+    "email": "mailto:tlstjddud14@gmail.com",
+    "areaServed": "KR",
+    "serviceType": [
+      "C# WPF 클라이언트 개발",
+      "스마트팩토리 통신 연동",
+      "레거시 프로토콜 분석",
+      "기술 문서화"
+    ],
+    "sameAs": [
+      "https://sss.dev",
+      "https://oqrqjwgi.gensparkclaw.com/"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "AI 협업 개발은 무엇이 다른가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GPT로 요구사항과 코드 리뷰 초안을 만들고, Genspark AI Chat으로 자료 조사와 대안 비교를 보강하며, Google 검색 기준에 맞춰 공개 페이지와 문서 구조를 정리합니다. 최종 판단과 구현은 개발자가 직접 검증합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "어떤 프로젝트에 적합한가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "C#/WPF 클라이언트, 산업용 통신, MES 연동, 미문서화 프로토콜 분석, 레거시 시스템 개선, 기술 문서화 프로젝트에 적합합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "문의할 때 무엇을 보내면 되나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "현재 문제, 사용 환경, 원하는 결과, 일정, 예산 범위를 간단히 보내면 빠르게 범위를 나누고 다음 단계를 제안합니다."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#">신성영</a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="#services">서비스</a>
+        <a href="#ai">AI 협업</a>
+        <a href="#process">진행 방식</a>
+        <a href="#contact">문의하기</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-badge">수주 가능 · 현재 상담 오픈</div>
-  <h1>
-    복잡한 산업용 소프트웨어,<br>
-    <span>끝까지 파고드는 개발자</span>에게 맡기세요
-  </h1>
-  <p>
-    C#/WPF · 스마트팩토리 통신 · 리버스엔지니어링 전문.<br>
-    미문서화 프로토콜도, 레거시 시스템도 겁내지 않습니다.
-  </p>
-  <div class="cta-group">
-    <a href="#contact" class="btn btn-primary">📩 프로젝트 의뢰하기</a>
-    <a href="https://oqrqjwgi.gensparkclaw.com/" target="_blank" class="btn btn-secondary">🗂️ 포트폴리오 보기</a>
-  </div>
-</div>
-
-<!-- STATS -->
-<div class="stats">
-  <div class="stat-card">
-    <div class="num">3+</div>
-    <div class="label">년 실무 경력</div>
-  </div>
-  <div class="stat-card">
-    <div class="num">132</div>
-    <div class="label">기술 블로그 포스트</div>
-  </div>
-  <div class="stat-card">
-    <div class="num">10</div>
-    <div class="label">기술 카테고리</div>
-  </div>
-  <div class="stat-card">
-    <div class="num">3</div>
-    <div class="label">개 회사 실전 경험</div>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<section id="services">
-  <h2>🛠️ 제공 서비스</h2>
-  <p class="section-sub">실제로 해본 것만 받습니다. 못 하는 건 솔직히 말씀드립니다.</p>
-
-  <div class="notice">
-    💡 단가는 작업 범위·난이도에 따라 변동됩니다. 먼저 요건을 공유해 주시면 정확한 견적을 안내드립니다.
-  </div>
-
-  <div class="service-grid">
-
-    <div class="service-card">
-      <div class="service-icon">🖥️</div>
-      <h3>WPF / C# 클라이언트 개발</h3>
-      <p>MVVM 아키텍처 기반 산업용 UI 개발. 모니터링 대시보드, 장비 제어, 데이터 시각화.</p>
-      <div class="service-tags">
-        <span class="tag">C#</span>
-        <span class="tag">WPF</span>
-        <span class="tag">MVVM</span>
-        <span class="tag">Chart.js</span>
-        <span class="tag">Async/Thread</span>
+  <main>
+    <section class="hero" aria-label="소개">
+      <div class="hero-content">
+        <div class="eyebrow">AI 협업 기반 산업용 소프트웨어 개발</div>
+        <h1>신성영 AI 협업 프리랜서 개발자</h1>
+        <p class="hero-copy">
+          GPT, Genspark AI Chat, Google 검색 기준을 실무 워크플로에 붙여
+          요구사항 분석부터 구현, 문서화, 검색 노출까지 빠르게 정리합니다.
+          C#/WPF, 스마트팩토리 통신, 레거시 프로토콜 분석에 강합니다.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:tlstjddud14@gmail.com?subject=%5B%ED%94%84%EB%A6%AC%EB%9E%9C%EC%84%9C%20%EA%B0%9C%EB%B0%9C%20%EB%AC%B8%EC%9D%98%5D">프로젝트 문의하기</a>
+          <a class="btn btn-ghost" href="#ai">AI 협업 방식 보기</a>
+        </div>
+        <div class="proof-strip" aria-label="핵심 지표">
+          <div class="proof-item">
+            <span class="proof-number">3+</span>
+            <span class="proof-label">년 실무 경험</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-number">132</span>
+            <span class="proof-label">기술 블로그 기록</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-number">10</span>
+            <span class="proof-label">기술 카테고리</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-number">24h</span>
+            <span class="proof-label">초기 회신 목표</span>
+          </div>
+        </div>
       </div>
-      <div class="price-range">견적 문의</div>
-    </div>
+    </section>
 
-    <div class="service-card">
-      <div class="service-icon">📡</div>
-      <h3>산업용 통신 연동</h3>
-      <p>IPC-CFX, AMQP 1.0, MQTT, TCP/IOCP 등 산업 표준 프로토콜 연동 및 게이트웨이 개발.</p>
-      <div class="service-tags">
-        <span class="tag">CFX</span>
-        <span class="tag">RabbitMQ</span>
-        <span class="tag">MQTT</span>
-        <span class="tag">IOCP</span>
-        <span class="tag">MES</span>
+    <section id="services" class="band">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>바로 팔릴 수 있게 묶은 개발 서비스</h2>
+          <p class="section-sub">
+            단순 인력 소개가 아니라 문제 유형별로 산출물을 명확히 나눴습니다.
+            의뢰자는 필요한 결과를 고르고, 범위는 상담에서 좁힙니다.
+          </p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>AI 진단 스프린트</h3>
+            <p>레거시 코드, 장비 로그, 통신 흐름, 화면 요구사항을 빠르게 훑고 구현 가능성, 리스크, 일정 초안을 정리합니다.</p>
+            <div class="tags">
+              <span class="tag teal">요건 정리</span>
+              <span class="tag">리스크 분석</span>
+              <span class="tag">견적 근거</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>C#/WPF 클라이언트 개발</h3>
+            <p>산업용 UI, 모니터링 대시보드, 장비 제어 화면, 데이터 시각화를 현장 사용성 중심으로 구현합니다.</p>
+            <div class="tags">
+              <span class="tag teal">C#</span>
+              <span class="tag">WPF</span>
+              <span class="tag">MVVM</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>스마트팩토리 통신 연동</h3>
+            <p>MES, 장비, 게이트웨이, 메시지 브로커 사이의 통신 문제를 분석하고 안정적인 연동 구조를 만듭니다.</p>
+            <div class="tags">
+              <span class="tag teal">CFX</span>
+              <span class="tag">AMQP</span>
+              <span class="tag">MQTT</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>프로토콜 분석과 복구</h3>
+            <p>문서가 부족한 통신, 오래된 바이너리, 폐쇄망 환경의 단서를 모아 재현 가능한 분석 자료로 바꿉니다.</p>
+            <div class="tags">
+              <span class="tag amber">Reverse</span>
+              <span class="tag">Legacy</span>
+              <span class="tag">Packet</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>DB와 백엔드 개선</h3>
+            <p>PostgreSQL, MariaDB, Redis, Node.js 기반의 데이터 흐름과 병목을 줄이고 운영 가능한 구조로 정리합니다.</p>
+            <div class="tags">
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Redis</span>
+              <span class="tag">Node.js</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>기술 문서와 검색 노출</h3>
+            <p>개발 결과를 인수인계 문서, 블로그 글, FAQ, Google/AI 검색 친화형 페이지로 재구성합니다.</p>
+            <div class="tags">
+              <span class="tag rose">문서화</span>
+              <span class="tag">FAQ</span>
+              <span class="tag">SEO</span>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="price-range">견적 문의</div>
-    </div>
+    </section>
 
-    <div class="service-card">
-      <div class="service-icon">🔐</div>
-      <h3>리버스엔지니어링 / 프로토콜 분석</h3>
-      <p>미문서화 통신 프로토콜 역분석, 암호화 알고리즘 파악 및 재구현. 레거시 시스템 연동.</p>
-      <div class="service-tags">
-        <span class="tag">x64dbg</span>
-        <span class="tag">Ghidra</span>
-        <span class="tag">JADX</span>
-        <span class="tag">ARIA</span>
-        <span class="tag">BLAKE2b</span>
+    <section id="ai" class="band band-muted">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>GPT, Genspark AI Chat, Google을 실무 보조자로 씁니다</h2>
+          <p class="section-sub">
+            특정 도구에 결과를 맡기지 않습니다. AI는 조사와 정리 속도를 높이고,
+            최종 설계와 검증은 사람이 책임지는 구조로 운영합니다.
+          </p>
+        </div>
+        <div class="ai-stack">
+          <article class="card tool-card">
+            <div>
+              <div class="tool-name">GPT</div>
+              <p class="tool-role">요구사항을 사용자 스토리와 체크리스트로 쪼개고, 코드 리뷰 초안과 테스트 관점을 빠르게 만듭니다.</p>
+            </div>
+            <div class="tags">
+              <span class="tag teal">기획 정리</span>
+              <span class="tag teal">코드 리뷰</span>
+            </div>
+          </article>
+          <article class="card tool-card">
+            <div>
+              <div class="tool-name">Genspark AI Chat</div>
+              <p class="tool-role">대안 비교, 자료 수집, 구현 후보 정리에 활용합니다. 조사 결과는 근거 중심으로 다시 검토합니다.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">리서치</span>
+              <span class="tag">대안 비교</span>
+            </div>
+          </article>
+          <article class="card tool-card">
+            <div>
+              <div class="tool-name">Google</div>
+              <p class="tool-role">검색 의도, 공개 문서 구조, FAQ, 구조화 데이터 기준을 맞춰 의뢰자와 고객이 찾기 쉬운 산출물을 만듭니다.</p>
+            </div>
+            <div class="tags">
+              <span class="tag amber">검색 노출</span>
+              <span class="tag amber">구조화 데이터</span>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="price-range">견적 문의</div>
-    </div>
+    </section>
 
-    <div class="service-card">
-      <div class="service-icon">🏭</div>
-      <h3>스마트팩토리 소프트웨어</h3>
-      <p>SMT 공정, MES 연동, 장비 제어 SW 개발. 클린룸·폐쇄망 환경 경험 다수.</p>
-      <div class="service-tags">
-        <span class="tag">IPC-CFX 2591</span>
-        <span class="tag">SMT</span>
-        <span class="tag">Docker</span>
-        <span class="tag">Linux</span>
+    <section class="band">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>의뢰자가 받는 결과물</h2>
+          <p class="section-sub">
+            개발만 끝내는 방식이 아니라, 이후 운영자가 이해하고 이어받을 수 있는 형태로 남깁니다.
+          </p>
+        </div>
+        <div class="deliverables">
+          <div class="deliverable">
+            <strong>문제 정의서</strong>
+            <span>현재 상태, 목표, 제외 범위, 의사결정 포인트를 짧게 정리합니다.</span>
+          </div>
+          <div class="deliverable">
+            <strong>구현 산출물</strong>
+            <span>소스코드, 설정, 빌드 방법, 실행 절차를 함께 제공합니다.</span>
+          </div>
+          <div class="deliverable">
+            <strong>검증 체크리스트</strong>
+            <span>테스트한 항목과 남은 리스크를 의뢰자가 확인하기 쉬운 문서로 남깁니다.</span>
+          </div>
+          <div class="deliverable">
+            <strong>검색/문서 패키지</strong>
+            <span>블로그, FAQ, 랜딩 페이지 문구까지 재사용 가능한 형태로 정리합니다.</span>
+          </div>
+        </div>
       </div>
-      <div class="price-range">견적 문의</div>
-    </div>
+    </section>
 
-    <div class="service-card">
-      <div class="service-icon">🗄️</div>
-      <h3>백엔드 / DB 최적화</h3>
-      <p>PostgreSQL, MariaDB, Redis 기반 백엔드 개발 및 쿼리 최적화. Bulk Insert, MVCC 튜닝.</p>
-      <div class="service-tags">
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">Redis</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">Docker</span>
+    <section id="process" class="band band-muted">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>진행 방식</h2>
+          <p class="section-sub">
+            처음부터 큰 계약으로 묶지 않고, 작은 진단 단위로 시작해 실제 구현으로 확장합니다.
+          </p>
+        </div>
+        <div class="process">
+          <div class="step">
+            <div>
+              <h3>문제와 자료 공유</h3>
+              <p>현재 증상, 화면, 로그, 사용 환경, 원하는 결과를 가능한 범위에서 전달합니다.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>AI 보조 진단과 사람 검토</h3>
+              <p>GPT와 Genspark AI Chat으로 후보를 빠르게 정리한 뒤, 개발자가 근거와 구현 가능성을 검증합니다.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>범위, 일정, 비용 확정</h3>
+              <p>기능 단위로 쪼개 견적을 만들고, 우선순위에 맞춰 납품 단계를 나눕니다.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>구현과 중간 공유</h3>
+              <p>진행 상황, 결정 사항, 위험 요소를 짧은 문서와 함께 공유합니다.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <h3>납품과 인수인계</h3>
+              <p>소스, 실행 방법, 검증 항목, 유지보수 포인트를 함께 전달합니다.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="price-range">견적 문의</div>
-    </div>
+    </section>
 
-    <div class="service-card">
-      <div class="service-icon">📝</div>
-      <h3>기술 문서 / 기술 블로그 대필</h3>
-      <p>복잡한 기술 스택을 명확하게 정리. 사내 기술 문서, 위키, 개발 블로그 포스팅 작성.</p>
-      <div class="service-tags">
-        <span class="tag">기술 문서화</span>
-        <span class="tag">블로그</span>
-        <span class="tag">위키</span>
+    <section class="band">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>자주 묻는 질문</h2>
+          <p class="section-sub">
+            문의 전에 가장 많이 걸리는 부분만 먼저 정리했습니다.
+          </p>
+        </div>
+        <details>
+          <summary>AI가 만든 결과물을 그대로 쓰나요?</summary>
+          <p>아닙니다. AI는 요구사항 정리, 조사, 초안 작성에 활용하고 최종 설계, 코드, 문서, 검증은 직접 확인합니다.</p>
+        </details>
+        <details>
+          <summary>산업용/폐쇄망 환경도 가능한가요?</summary>
+          <p>가능합니다. 다만 보안 정책상 외부 도구 사용이 제한되는 경우가 많으므로, 자료 반출 가능 범위와 작업 환경을 먼저 확인합니다.</p>
+        </details>
+        <details>
+          <summary>작은 작업도 맡길 수 있나요?</summary>
+          <p>가능합니다. 원인 분석, 화면 수정, 문서화, 통신 흐름 점검처럼 작은 단위로 시작한 뒤 필요하면 구현 범위를 넓힙니다.</p>
+        </details>
       </div>
-      <div class="price-range">견적 문의</div>
-    </div>
+    </section>
 
-  </div>
-</section>
+    <section id="contact" class="band contact">
+      <div class="wrap contact-layout">
+        <div>
+          <h2>프로젝트를 AI 협업 방식으로 정리해볼까요?</h2>
+          <p class="section-sub">
+            복잡한 설명이 아니어도 됩니다. 현재 문제와 원하는 결과만 보내주시면
+            진단 가능한 범위부터 답변드리겠습니다.
+          </p>
+          <div class="contact-list">
+            <a class="contact-link" href="mailto:tlstjddud14@gmail.com?subject=%5B%ED%94%84%EB%A6%AC%EB%9E%9C%EC%84%9C%20%EA%B0%9C%EB%B0%9C%20%EB%AC%B8%EC%9D%98%5D">
+              이메일로 의뢰하기
+              <span>tlstjddud14@gmail.com</span>
+            </a>
+            <a class="contact-link" href="https://sss.dev" target="_blank" rel="noopener noreferrer">
+              기술 블로그 보기
+              <span>sss.dev</span>
+            </a>
+            <a class="contact-link" href="https://oqrqjwgi.gensparkclaw.com/" target="_blank" rel="noopener noreferrer">
+              포트폴리오 보기
+              <span>Genspark</span>
+            </a>
+          </div>
+        </div>
+        <aside class="brief-box" aria-label="문의 시 포함하면 좋은 정보">
+          <h3>문의에 포함하면 좋은 정보</h3>
+          <ul>
+            <li>현재 겪는 문제와 원하는 결과</li>
+            <li>사용 기술, 장비, 운영 환경</li>
+            <li>희망 일정과 예산 범위</li>
+            <li>공유 가능한 화면, 로그, 문서 여부</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
 
-<!-- STRENGTHS -->
-<section id="strengths">
-  <h2>💪 왜 저한테 맡기나요?</h2>
-  <p class="section-sub">비슷한 스펙의 개발자와 다른 점입니다.</p>
-
-  <div class="strength-list">
-    <div class="strength-item">
-      <div class="icon">🔍</div>
-      <div>
-        <h4>모르면 직접 파헤칩니다</h4>
-        <p>문서 없는 프로토콜, 레거시 암호화 — 리버스엔지니어링으로 결국 풀어냈습니다.</p>
-      </div>
+  <footer>
+    <div class="wrap">
+      <p>© 2026 신성영. AI 협업 프리랜서 개발.</p>
+      <p><a href="https://sss.dev">블로그</a> · <a href="https://oqrqjwgi.gensparkclaw.com/">포트폴리오</a></p>
     </div>
-    <div class="strength-item">
-      <div class="icon">🏭</div>
-      <div>
-        <h4>현장 경험</h4>
-        <p>중국 현지 파견, 클린룸, 폐쇄망 환경에서 실제 라인에 투입된 소프트웨어를 만들었습니다.</p>
-      </div>
-    </div>
-    <div class="strength-item">
-      <div class="icon">📚</div>
-      <div>
-        <h4>기록하는 개발자</h4>
-        <p>2023년부터 132개 기술 포스트. 작업 내용을 문서화하고 인수인계가 깔끔합니다.</p>
-      </div>
-    </div>
-    <div class="strength-item">
-      <div class="icon">⚡</div>
-      <div>
-        <h4>풀스택 커버리지</h4>
-        <p>WPF 프론트부터 DB 튜닝, 통신 레이어까지 혼자 처리 가능해 커뮤니케이션 비용이 낮습니다.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-  <h2>📋 진행 프로세스</h2>
-  <p class="section-sub">복잡하지 않습니다. 빠르게 시작합니다.</p>
-
-  <div class="process-steps">
-    <div class="process-step">
-      <div class="step-num">1</div>
-      <div class="step-line"></div>
-      <div class="step-body">
-        <h4>요건 공유</h4>
-        <p>이메일이나 블로그 댓글로 작업 내용, 일정, 예산 범위를 간단히 알려주세요.</p>
-      </div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">2</div>
-      <div class="step-line"></div>
-      <div class="step-body">
-        <h4>미팅 / 사전 협의</h4>
-        <p>화상 또는 채팅으로 구체적인 범위를 확인합니다. 보통 30분 이내로 끝납니다.</p>
-      </div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">3</div>
-      <div class="step-line"></div>
-      <div class="step-body">
-        <h4>견적 & 계약</h4>
-        <p>작업 범위 명세서와 일정, 단가를 문서로 제공합니다. 계약서 작성 가능합니다.</p>
-      </div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">4</div>
-      <div class="step-line"></div>
-      <div class="step-body">
-        <h4>개발 & 중간 보고</h4>
-        <p>주 1회 이상 진행 상황을 공유합니다. 변경사항은 즉시 협의합니다.</p>
-      </div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">5</div>
-      <div class="step-line"></div>
-      <div class="step-body">
-        <h4>납품 & 인수인계</h4>
-        <p>소스코드, 문서, 빌드 방법 일체 제공. 필요 시 유지보수 계약 가능합니다.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-box">
-    <h2>프로젝트를 시작해볼까요?</h2>
-    <p>
-      먼저 가볍게 요건만 공유해 주세요.<br>
-      보통 <strong>24시간 이내</strong>에 회신드립니다.
-    </p>
-    <div class="contact-channels">
-      <a href="mailto:tlstjddud14@gmail.com" class="channel-btn ch-email">
-        📧 이메일로 의뢰하기
-      </a>
-      <a href="https://sss.dev" target="_blank" class="channel-btn ch-blog">
-        📖 기술 블로그 방문
-      </a>
-      <a href="https://oqrqjwgi.gensparkclaw.com/" target="_blank" class="channel-btn ch-portfolio">
-        🗂️ 포트폴리오 보기
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 신성영 · C#/WPF · 스마트팩토리 · 리버스엔지니어링</p>
-  <p style="margin-top:8px;">
-    <a href="https://sss.dev">블로그</a> · 
-    <a href="https://oqrqjwgi.gensparkclaw.com/">포트폴리오</a>
-  </p>
-</footer>
-
+  </footer>
 </body>
 </html>
